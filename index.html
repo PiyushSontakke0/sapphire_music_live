@@ -1,0 +1,498 @@
+<!DOCTYPE html><html lang="en"><head><script>
+/* lokuma-branding-banner@v2 — server-injected.
+   Singleton via global flag so HMR / repeat-mount don't double-render.
+   No framework deps; only touches body after DOMContentLoaded. */
+(function(){
+  try {
+    if (globalThis.__LOKUMA_BRAND_BANNER_V2__) return;
+    globalThis.__LOKUMA_BRAND_BANNER_V2__ = true;
+
+    function mount() {
+      try {
+        if (document.querySelector('[data-lokuma-banner="v2"]')) return;
+
+        var wrap = document.createElement("div");
+        wrap.setAttribute("data-lokuma-banner", "v2");
+        wrap.style.cssText = [
+          "position:fixed",
+          "left:50%",
+          "bottom:22px",
+          "transform:translateX(-50%)",
+          "z-index:2147483647",
+          "max-width:min(96vw, 1020px)",
+          "pointer-events:none",
+        ].join(";");
+
+        var bar = document.createElement("div");
+        bar.style.cssText = [
+          "pointer-events:auto",
+          "display:flex",
+          "align-items:center",
+          "gap:12px",
+          "padding:14px 16px",
+          "border-radius:999px",
+          "background:rgba(255,255,255,0.92)",
+          "border:1px solid rgba(0,0,0,0.08)",
+          "box-shadow:0 18px 48px rgba(0,0,0,0.22)",
+          "backdrop-filter:blur(10px)",
+          "-webkit-backdrop-filter:blur(10px)",
+          "font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial",
+          "color:#111827",
+        ].join(";");
+
+        var left = document.createElement("div");
+        left.style.cssText = [
+          "display:flex",
+          "align-items:center",
+          "gap:8px",
+          "min-width:0",
+          "flex:1 1 auto",
+        ].join(";");
+
+        var logo = document.createElement("img");
+        logo.src = "/logo.svg";
+        logo.alt = "Lokuma";
+        logo.width = 28;
+        logo.height = 28;
+        logo.style.cssText = "width:28px;height:28px;display:block;object-fit:contain;border-radius:6px";
+        logo.onerror = function(){ try { logo.style.display = "none"; } catch(e){} };
+
+        var msg = document.createElement("span");
+        msg.textContent = "Like this site? Build your own with Lokuma.";
+        msg.style.cssText = [
+          "font-size:15px",
+          "line-height:20px",
+          "font-weight:800",
+          "color:rgba(17,24,39,0.78)",
+          "white-space:nowrap",
+          "overflow:hidden",
+          "text-overflow:ellipsis",
+        ].join(";");
+
+        left.appendChild(logo);
+        left.appendChild(msg);
+
+        var cta = document.createElement("a");
+        cta.href = "/?ref=preview_banner";
+        cta.target = "_blank";
+        cta.rel = "noreferrer";
+        cta.style.cssText = [
+          "display:inline-flex",
+          "align-items:center",
+          "gap:8px",
+          "padding:12px 18px",
+          "border-radius:999px",
+          "text-decoration:none",
+          "font-size:14px",
+          "line-height:18px",
+          "font-weight:900",
+          "color:#fff",
+          "background:linear-gradient(135deg, #a855f7 0%, #6366f1 100%)",
+          "box-shadow:0 12px 30px rgba(99,102,241,0.28)",
+          "border:0",
+          "white-space:nowrap",
+        ].join(";");
+
+        var ctaIcon = document.createElement("span");
+        ctaIcon.style.cssText = "display:inline-flex;align-items:center;justify-content:center";
+        ctaIcon.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l1.2 4.2L17.4 7.4l-4.2 1.2L12 12.8l-1.2-4.2L6.6 7.4l4.2-1.2L12 2z" fill="rgba(255,255,255,0.95)"/></svg>';
+
+        var ctaText = document.createElement("span");
+        ctaText.textContent = "Get Started — Free";
+
+        cta.appendChild(ctaIcon);
+        cta.appendChild(ctaText);
+
+        var close = document.createElement("button");
+        close.type = "button";
+        close.setAttribute("aria-label", "Close");
+        close.textContent = "×";
+        close.style.cssText = [
+          "pointer-events:auto",
+          "position:absolute",
+          "right:-10px",
+          "top:-10px",
+          "width:36px",
+          "height:36px",
+          "border-radius:999px",
+          "border:1px solid rgba(0,0,0,0.1)",
+          "background:rgba(255,255,255,0.98)",
+          "color:rgba(17,24,39,0.8)",
+          "font-size:22px",
+          "line-height:34px",
+          "cursor:pointer",
+          "box-shadow:0 10px 24px rgba(0,0,0,0.18)",
+        ].join(";");
+        close.addEventListener("click", function(ev){
+          ev.preventDefault();
+          ev.stopPropagation();
+          try { wrap.remove(); } catch(e){}
+        });
+
+        wrap.appendChild(bar);
+        wrap.appendChild(close);
+        bar.appendChild(left);
+        bar.appendChild(cta);
+        document.body.appendChild(wrap);
+      } catch(e) {}
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", mount);
+    } else {
+      mount();
+    }
+  } catch(e) {}
+})();
+</script>
+    <meta name="description" content="I need to build a premium looking website for a brand called sapphire, their colour scheme is black and silver gradient typeish, they are a duo of musicians one">
+    <meta property="og:title" content="Sapphire Nocturne">
+    <meta property="og:description" content="I need to build a premium looking website for a brand called sapphire, their colour scheme is black and silver gradient typeish, they are a duo of musicians one">
+    <meta property="og:image" content="https://udyfpqunbgxlmerbqzbr.supabase.co/storage/v1/object/public/projects/3d9eac2a-903e-4d2d-a570-f8f5bf1859e3/v1/dist_preview/hero.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://udyfpqunbgxlmerbqzbr.supabase.co/storage/v1/object/public/projects/3d9eac2a-903e-4d2d-a570-f8f5bf1859e3/v1/dist_preview/hero.jpg">
+<script>(function(){try{var H=location.hostname;if(H!=="localhost"&&H!=="127.0.0.1"&&H!=="0.0.0.0")return;if(window.__LOKUMA_DEV_FORM_SHIM__)return;window.__LOKUMA_DEV_FORM_SHIM__=true;var P="https://lokuma.ai/api/project-submissions";var R="/api/project-submissions";var _f=window.fetch;window.fetch=function(u,o){try{var s=typeof u==="string"?u:(u&&u.url)||"";if(s.indexOf(P)===0){var nu=R+s.slice(P.length);if(typeof u==="string")u=nu;else u=new Request(nu,u);}}catch(e){}return _f.call(this,u,o);};}catch(e){}})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapphire Nocturne</title>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <script type="module" crossorigin="" src="https://something.lokuma.app/assets/index-swxY1S5G.js"></script>
+    <link rel="stylesheet" crossorigin="" href="https://something.lokuma.app/assets/style-B13R-LHD.css">
+  <script>(function(){var p="/preview/3d9eac2a-903e-4d2d-a570-f8f5bf1859e3/v1";var rw=function(u){return (typeof u==='string'&&u.indexOf('/images/')===0)?(p+u):u;};var fix=function(el){if(!el||!el.getAttribute||!el.setAttribute)return;var s=el.getAttribute('src');if(typeof s==='string'&&s.indexOf('/images/')===0){el.setAttribute('src',p+s);}var srcset=el.getAttribute('srcset');if(typeof srcset==='string'&&srcset.indexOf('/images/')===0){el.setAttribute('srcset',p+srcset);}var st=el.getAttribute('style');if(typeof st==='string'&&st.indexOf('url(/images/')>=0){el.setAttribute('style',st.split('url(/images/').join('url('+p+'/images/'));}};var scan=function(root){if(!root||!root.querySelectorAll)return;root.querySelectorAll('[src],[srcset],[style]').forEach(fix);};scan(document);var mo=new MutationObserver(function(list){for(var i=0;i<list.length;i++){var m=list[i];if(m.type==='attributes'){fix(m.target);}else if(m.type==='childList'){for(var j=0;j<m.addedNodes.length;j++){var n=m.addedNodes[j];if(n&&n.nodeType===1){fix(n);scan(n);}}}}});mo.observe(document.documentElement||document,{subtree:true,childList:true,attributes:true,attributeFilter:['src','srcset','style']});if(window.fetch){var of=window.fetch;window.fetch=function(input,init){if(typeof input==='string'){input=rw(input);}else if(input&&typeof Request!=='undefined'&&input instanceof Request){var nu=rw(input.url);if(nu!==input.url){input=new Request(nu,input);}}return of.call(this,input,init);};}var xo=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(method,url){if(typeof url==='string'){url=rw(url);}return xo.apply(this,[method,url].concat([].slice.call(arguments,2)));};})();</script></head>
+  <body>
+    <div id="root"><header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background border-b border-border" data-nce-nav-scroll="true"><div class="max-w-7xl mx-auto px-6 md:px-12"><div class="flex items-center justify-between h-24"><a href="#" class="font-display text-2xl md:text-3xl tracking-tighter uppercase text-foreground z-50 relative">Sapphire</a><nav class="hidden md:flex items-center gap-8"><a href="#about" class="text-xs font-mono uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2">About<span class="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150"></span></a><a href="#performances" class="text-xs font-mono uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2">Performances<span class="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150"></span></a><a href="#offerings" class="text-xs font-mono uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2">Offerings<span class="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150"></span></a><a href="#styles" class="text-xs font-mono uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2">Styles<span class="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150"></span></a><a href="#inquiry" class="ml-4 px-6 py-3 border border-foreground text-foreground text-xs font-mono uppercase tracking-widest hover:bg-foreground hover:text-background transition-colors duration-150">Inquire</a></nav><button class="md:hidden text-foreground p-2 -mr-2 z-50 relative" aria-label="Toggle Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu "><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button></div></div><div class="md:hidden absolute top-full left-0 w-full bg-background border-b border-border transition-all duration-300 overflow-hidden max-h-0 opacity-0"><nav class="flex flex-col px-6 py-8 gap-6"><a href="#about" class="text-lg font-mono uppercase tracking-widest text-foreground border-b border-border/50 pb-4">About</a><a href="#performances" class="text-lg font-mono uppercase tracking-widest text-foreground border-b border-border/50 pb-4">Performances</a><a href="#offerings" class="text-lg font-mono uppercase tracking-widest text-foreground border-b border-border/50 pb-4">Offerings</a><a href="#styles" class="text-lg font-mono uppercase tracking-widest text-foreground border-b border-border/50 pb-4">Styles</a><a href="#inquiry" class="mt-4 inline-flex justify-center w-full px-6 py-4 bg-foreground text-background text-sm font-mono uppercase tracking-widest transition-colors">Check Availability</a></nav></div></header><main><section class="relative min-h-screen overflow-hidden flex items-center justify-center pt-32 pb-24 bg-background"><div class="absolute top-0 left-0 w-1/2 h-full bg-foreground z-50 transition-transform duration-[1500ms] ease-[cubic-bezier(0.22,1,0.36,1)] -translate-x-full" aria-hidden="true"></div><div class="absolute top-0 right-0 w-1/2 h-full bg-foreground z-50 transition-transform duration-[1500ms] ease-[cubic-bezier(0.22,1,0.36,1)] translate-x-full" aria-hidden="true"></div><div class="absolute inset-0 z-0 transition-transform duration-[3000ms] ease-out scale-100" style="background-image: url('https://something.lokuma.app/hero.jpg'), linear-gradient(135deg, var(--hero-overlay) 0%, var(--hero-overlay) 100%); background-size: cover, cover; background-position: center center, center center; background-blend-mode: overlay;"><div class="absolute inset-0" style="background: linear-gradient(to bottom, color-mix(in srgb, var(--hero-overlay) 30%, transparent) 0%, var(--hero-overlay) 100%);"></div><div class="absolute inset-0 opacity-[0.03] mix-blend-overlay" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url('https://something.lokuma.app/%23n')'/%3E%3C/svg%3E&quot;); background-size: 200px;"></div></div><div class="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto w-full"><span class="font-sans uppercase tracking-[0.2em] text-xs md:text-sm mb-6 md:mb-8 transition-all duration-1000 ease-out delay-[1000ms] opacity-100 translate-y-0" style="color: var(--hero-fg);">Live Guitar &amp; Keyboard for Timeless Moments</span><h1 class="font-display text-6xl md:text-8xl lg:text-[10rem] leading-none tracking-tighter text-balance min-w-0 [text-wrap:balance] mb-6 md:mb-8 transition-all duration-1000 ease-out delay-[1200ms] opacity-100 translate-y-0" style="background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: text; background-color: ; -webkit-text-fill-color: transparent;">Sapphire</h1><p class="font-sans text-lg md:text-xl max-w-2xl text-balance mb-12 transition-all duration-1000 ease-out delay-[1400ms] opacity-90 translate-y-0" style="color: var(--hero-fg);">Elegant instrumental music crafted for your wedding and most intimate celebrations</p><div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto transition-all duration-1000 ease-out delay-[1600ms] opacity-100 translate-y-0"><a href="#inquiry" class="inline-flex items-center justify-center px-10 py-4 font-sans text-sm font-semibold uppercase tracking-widest transition-all duration-300 hover:scale-105" style="background-color: var(--hero-fg); color: var(--hero-overlay);">Check Availability</a><a href="#performances" class="inline-flex items-center justify-center px-10 py-4 font-sans text-sm font-semibold uppercase tracking-widest transition-all duration-300 border hover:bg-[var(--hero-fg)] hover:text-[var(--hero-overlay)]" style="border-color: var(--hero-fg); color: var(--hero-fg);">Watch Performances</a></div></div><div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce transition-opacity duration-1000 delay-[2000ms] opacity-50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-8 h-8" style="color: var(--hero-fg);"><path d="m6 9 6 6 6-6"></path></svg></div></section><section id="about" class="bg-background text-foreground pt-24 pb-32 md:pt-32 md:pb-40 overflow-hidden flex flex-col scroll-mt-16"><div class="max-w-7xl w-full mx-auto px-6 md:px-12 lg:px-16 mb-16 md:mb-24"><div class="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-12"><span class="font-mono text-xs tracking-[0.2em] uppercase text-mutedForeground whitespace-nowrap">Our Philosophy</span><h2 class="font-display text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-none uppercase text-balance min-w-0 [text-wrap:balance]">The Art of <br class="hidden md:block"> Presence.</h2></div></div><div class="w-full h-[60vh] md:h-[80vh] relative mb-16 md:mb-24"><div class="absolute inset-0 bg-background/10 mix-blend-multiply z-10 pointer-events-none"></div><img src="https://something.lokuma.app/about.jpg" alt="Sapphire duo performing live" class="w-full h-full object-cover grayscale-[15%]" loading="lazy" decoding="async"></div><div class="max-w-7xl w-full mx-auto px-6 md:px-12 lg:px-16 flex flex-col md:flex-row justify-end"><div class="max-w-2xl relative"><div class="w-16 h-1 bg-accent mb-8"></div><p class="font-body text-xl md:text-2xl lg:text-3xl leading-relaxed text-foreground/75">We don't just play songs; we score the most intimate moments of your life.<span class="text-foreground font-medium"> The chemistry between guitar and keyboard creates a living, breathing atmosphere</span>—curated live sets that respond to the energy of your room, turning fleeting seconds into timeless memories.</p></div></div></section><section id="performances" class="py-28 md:py-40 bg-background text-foreground overflow-hidden border-t border-border scroll-mt-16"><div class="max-w-6xl mx-auto px-6 lg:px-12"><div class="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8"><div><span class="block text-xs font-mono uppercase tracking-[0.2em] text-mutedForeground mb-6">Live in Motion</span><h2 class="font-display text-5xl md:text-7xl lg:text-8xl tracking-tighter text-balance min-w-0 [text-wrap:balance]">Selected Performances</h2></div><div class="hidden md:block pb-4"><p class="text-mutedForeground font-mono text-sm tracking-[0.2em] uppercase">Vol. I — MMXXIV</p></div></div><div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8"><div class="group relative col-span-1 md:col-span-12 aspect-video bg-foreground overflow-hidden border border-border cursor-pointer" role="button" aria-label="Play The Sapphire Experience video"><img src="https://something.lokuma.app/img_img_unsplash_GACKgcYbBiM.jpg" alt="The Sapphire Experience" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)]" loading="lazy" decoding="async"><div aria-hidden="true" data-scrim-injected="true" class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none"></div><div class="absolute inset-0 flex items-center justify-center"><div class="w-20 h-20 md:w-24 md:h-24 border border-background flex items-center justify-center text-background group-hover:bg-accent group-hover:border-accent group-hover:text-accentForeground transition-colors duration-150"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play w-8 h-8 md:w-10 md:h-10 ml-2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div><div class="absolute bottom-0 left-0 p-6 md:p-10 w-full bg-gradient-to-t from-foreground/90 to-transparent"><h3 class="font-display text-2xl md:text-4xl text-background tracking-tight">The Sapphire Experience</h3></div></div><div class="group relative col-span-1 md:col-span-7 aspect-video bg-foreground overflow-hidden border border-border cursor-pointer" role="button" aria-label="Play Classical Elegance video"><img src="https://something.lokuma.app/img_img_unsplash_yvEVMyTzMO4.jpg" alt="Classical Elegance" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)]" loading="lazy" decoding="async"><div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 border border-background flex items-center justify-center text-background group-hover:bg-accent group-hover:border-accent group-hover:text-accentForeground transition-colors duration-150"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play w-6 h-6 ml-1"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div><div class="absolute bottom-0 left-0 p-6 md:p-8 w-full bg-gradient-to-t from-foreground/90 to-transparent"><h3 class="font-display text-xl md:text-3xl text-background tracking-tight">Classical Elegance</h3></div></div><div class="group relative col-span-1 md:col-span-5 aspect-[4/3] md:aspect-video bg-foreground overflow-hidden border border-border cursor-pointer" role="button" aria-label="Play Acoustic Intimacy video"><img src="https://something.lokuma.app/img_img_unsplash_fWzqFbKe9Wo.jpg" alt="Acoustic Intimacy" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)]" loading="lazy" decoding="async"><div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 border border-background flex items-center justify-center text-background group-hover:bg-accent group-hover:border-accent group-hover:text-accentForeground transition-colors duration-150"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play w-6 h-6 ml-1"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div><div class="absolute bottom-0 left-0 p-6 md:p-8 w-full bg-gradient-to-t from-foreground/90 to-transparent"><h3 class="font-display text-xl md:text-3xl text-background tracking-tight">Acoustic Intimacy</h3></div></div></div></div></section><section id="offerings" class="bg-background text-foreground py-24 md:py-40 overflow-hidden scroll-mt-16"><div class="max-w-7xl mx-auto px-6 lg:px-16"><div class="mb-20 md:mb-32"><span class="block font-mono text-xs md:text-sm tracking-widest uppercase text-mutedForeground mb-6">Curated Moments</span><h2 class="font-display text-5xl md:text-7xl lg:text-8xl tracking-tighter text-balance min-w-0 [text-wrap:balance]">Scoring your most <br class="hidden md:block"><span class="text-mutedForeground">intimate chapters.</span></h2></div><div class="flex flex-col"><article class="group relative grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 py-12 md:py-16 border-t border-border first:border-t-2 first:border-foreground"><div class="col-span-1 md:col-span-2 flex items-start"><span class="font-mono text-xl md:text-2xl text-foreground/75 group-hover:text-accent transition-colors duration-300">01</span></div><div class="col-span-1 md:col-span-5 flex flex-col justify-center min-w-0"><h3 class="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4 transform group-hover:translate-x-4 transition-transform duration-500 ease-[cubic-bezier(0.25,0,0,1)]">Bridal Entry</h3><p class="font-sans text-mutedForeground tracking-widest uppercase text-xs md:text-sm transform group-hover:translate-x-4 transition-transform duration-500 delay-75 ease-[cubic-bezier(0.25,0,0,1)]">A breathtaking acoustic arrival.</p><div class="mt-8 md:mt-12 flex items-center gap-3 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-4 transition-all duration-500 ease-[cubic-bezier(0.25,0,0,1)]"><span class="font-mono text-xs tracking-widest uppercase text-accent">Inquire</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-accent"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div></div><div class="col-span-1 md:col-span-5 relative w-full aspect-[4/3] md:aspect-[3/2] overflow-hidden bg-muted"><img src="https://something.lokuma.app/img_img_unsplash_-y_IKoORCf8.jpg" alt="Bridal Entry" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 scale-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)]" loading="lazy" decoding="async"><div class="absolute inset-0 border-2 border-transparent group-hover:border-accent transition-colors duration-500 ease-out z-10 pointer-events-none"></div></div></article><article class="group relative grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 py-12 md:py-16 border-t border-border first:border-t-2 first:border-foreground"><div class="col-span-1 md:col-span-2 flex items-start"><span class="font-mono text-xl md:text-2xl text-foreground/75 group-hover:text-accent transition-colors duration-300">02</span></div><div class="col-span-1 md:col-span-5 flex flex-col justify-center min-w-0"><h3 class="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4 transform group-hover:translate-x-4 transition-transform duration-500 ease-[cubic-bezier(0.25,0,0,1)]">Ceremony &amp; Varmala</h3><p class="font-sans text-mutedForeground tracking-widest uppercase text-xs md:text-sm transform group-hover:translate-x-4 transition-transform duration-500 delay-75 ease-[cubic-bezier(0.25,0,0,1)]">Sacred traditions scored live.</p><div class="mt-8 md:mt-12 flex items-center gap-3 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-4 transition-all duration-500 ease-[cubic-bezier(0.25,0,0,1)]"><span class="font-mono text-xs tracking-widest uppercase text-accent">Inquire</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-accent"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div></div><div class="col-span-1 md:col-span-5 relative w-full aspect-[4/3] md:aspect-[3/2] overflow-hidden bg-muted"><img src="https://something.lokuma.app/img_img_unsplash_BMIwe7PsVRo.jpg" alt="Ceremony &amp; Varmala" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 scale-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)]" loading="lazy" decoding="async"><div class="absolute inset-0 border-2 border-transparent group-hover:border-accent transition-colors duration-500 ease-out z-10 pointer-events-none"></div></div></article><article class="group relative grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 py-12 md:py-16 border-t border-border first:border-t-2 first:border-foreground"><div class="col-span-1 md:col-span-2 flex items-start"><span class="font-mono text-xl md:text-2xl text-foreground/75 group-hover:text-accent transition-colors duration-300">03</span></div><div class="col-span-1 md:col-span-5 flex flex-col justify-center min-w-0"><h3 class="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4 transform group-hover:translate-x-4 transition-transform duration-500 ease-[cubic-bezier(0.25,0,0,1)]">Cocktail &amp; Reception</h3><p class="font-sans text-mutedForeground tracking-widest uppercase text-xs md:text-sm transform group-hover:translate-x-4 transition-transform duration-500 delay-75 ease-[cubic-bezier(0.25,0,0,1)]">Sophisticated ambiance and celebration.</p><div class="mt-8 md:mt-12 flex items-center gap-3 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-4 transition-all duration-500 ease-[cubic-bezier(0.25,0,0,1)]"><span class="font-mono text-xs tracking-widest uppercase text-accent">Inquire</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-accent"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div></div><div class="col-span-1 md:col-span-5 relative w-full aspect-[4/3] md:aspect-[3/2] overflow-hidden bg-muted"><img src="https://something.lokuma.app/img_img_unsplash_CkSXoXKYXYc.jpg" alt="Cocktail &amp; Reception" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 scale-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)]" loading="lazy" decoding="async"><div class="absolute inset-0 border-2 border-transparent group-hover:border-accent transition-colors duration-500 ease-out z-10 pointer-events-none"></div></div></article><div class="border-t-2 border-foreground w-full"></div></div></div></section><section id="styles" class="bg-background text-foreground overflow-hidden py-24 md:py-40 border-t border-border scroll-mt-16"><div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16"><div class="mb-16 md:mb-24 flex items-center gap-4"><div class="h-px w-12 bg-accent"></div><span class="font-mono text-sm tracking-widest uppercase text-mutedForeground">Curated Repertoire</span></div><div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start"><div class="lg:col-span-4 w-full"><div class="relative aspect-[3/4] w-full overflow-hidden group"><div class="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-overlay pointer-events-none"></div><img src="https://something.lokuma.app/img_bk_03ec84ae23bf.jpg" alt="Close up of acoustic guitar strings in dramatic lighting" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)]" loading="lazy" decoding="async"></div></div><div class="lg:col-span-8 flex flex-col w-full"><div class="border-b border-border"><div class="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-t border-border relative cursor-default"><div class="absolute top-0 left-0 h-[2px] bg-accent w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)] z-20"></div><div class="flex items-start md:items-center gap-6 md:gap-12 relative z-10 w-full"><span class="font-mono text-sm md:text-base text-foreground/75 group-hover:text-accent transition-colors duration-300 mt-2 md:mt-0">01</span><h3 class="font-display text-4xl md:text-5xl lg:text-7xl tracking-tighter text-foreground group-hover:text-accent transition-colors duration-300 text-balance min-w-0 [text-wrap:balance]">Bollywood Romantic</h3></div><div class="hidden md:flex flex-shrink-0 opacity-0 -translate-x-8 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,0,0,1)] items-center justify-center w-12 h-12"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div></div><div class="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-t border-border relative cursor-default"><div class="absolute top-0 left-0 h-[2px] bg-accent w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)] z-20"></div><div class="flex items-start md:items-center gap-6 md:gap-12 relative z-10 w-full"><span class="font-mono text-sm md:text-base text-foreground/75 group-hover:text-accent transition-colors duration-300 mt-2 md:mt-0">02</span><h3 class="font-display text-4xl md:text-5xl lg:text-7xl tracking-tighter text-foreground group-hover:text-accent transition-colors duration-300 text-balance min-w-0 [text-wrap:balance]">English Classics</h3></div><div class="hidden md:flex flex-shrink-0 opacity-0 -translate-x-8 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,0,0,1)] items-center justify-center w-12 h-12"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div></div><div class="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-t border-border relative cursor-default"><div class="absolute top-0 left-0 h-[2px] bg-accent w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)] z-20"></div><div class="flex items-start md:items-center gap-6 md:gap-12 relative z-10 w-full"><span class="font-mono text-sm md:text-base text-foreground/75 group-hover:text-accent transition-colors duration-300 mt-2 md:mt-0">03</span><h3 class="font-display text-4xl md:text-5xl lg:text-7xl tracking-tighter text-foreground group-hover:text-accent transition-colors duration-300 text-balance min-w-0 [text-wrap:balance]">Instrumental / Ambient</h3></div><div class="hidden md:flex flex-shrink-0 opacity-0 -translate-x-8 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,0,0,1)] items-center justify-center w-12 h-12"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div></div><div class="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-t border-border relative cursor-default"><div class="absolute top-0 left-0 h-[2px] bg-accent w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)] z-20"></div><div class="flex items-start md:items-center gap-6 md:gap-12 relative z-10 w-full"><span class="font-mono text-sm md:text-base text-foreground/75 group-hover:text-accent transition-colors duration-300 mt-2 md:mt-0">04</span><h3 class="font-display text-4xl md:text-5xl lg:text-7xl tracking-tighter text-foreground group-hover:text-accent transition-colors duration-300 text-balance min-w-0 [text-wrap:balance]">Custom Requests</h3></div><div class="hidden md:flex flex-shrink-0 opacity-0 -translate-x-8 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,0,0,1)] items-center justify-center w-12 h-12"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div></div></div></div></div></div></section><section class="relative overflow-hidden bg-background py-32 md:py-48"><div class="pointer-events-none absolute inset-0 opacity-[0.015]" aria-hidden="true" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url('https://something.lokuma.app/%23n')'/%3E%3C/svg%3E&quot;); background-size: 200px;"></div><div class="relative mx-auto max-w-6xl px-6 md:px-12"><div class="mb-24 flex items-center gap-6"><div class="h-px w-12 bg-border"></div><h2 class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-mutedForeground">Client Words</h2></div><div class="flex flex-col gap-16 md:gap-24"><div class="w-full max-w-3xl border border-border p-8 transition-colors duration-500 hover:border-foreground/30 md:p-16 mr-auto"><blockquote class="min-w-0 text-balance font-display text-2xl leading-snug tracking-tight text-foreground md:text-4xl [text-wrap:balance]">"Their instrumental set during our vows felt like scoring a film in real time. Absolute perfection."</blockquote><div class="mt-12 flex items-center gap-6"><div class="h-1 w-12 bg-accent" aria-hidden="true"></div><cite class="font-sans text-xs font-semibold uppercase tracking-widest text-mutedForeground not-italic">Anjali &amp; Vikram, Udaipur</cite></div></div><div class="w-full max-w-3xl border border-border p-8 transition-colors duration-500 hover:border-foreground/30 md:p-16 ml-auto"><blockquote class="min-w-0 text-balance font-display text-2xl leading-snug tracking-tight text-foreground md:text-4xl [text-wrap:balance]">"Sophisticated, unobtrusive, and deeply moving. Sapphire elevated our reception beyond anything we imagined."</blockquote><div class="mt-12 flex items-center gap-6"><div class="h-1 w-12 bg-accent" aria-hidden="true"></div><cite class="font-sans text-xs font-semibold uppercase tracking-widest text-mutedForeground not-italic">Rohan &amp; Priya, Goa</cite></div></div><div class="w-full max-w-3xl border border-border p-8 transition-colors duration-500 hover:border-foreground/30 md:p-16 mr-auto"><blockquote class="min-w-0 text-balance font-display text-2xl leading-snug tracking-tight text-foreground md:text-4xl [text-wrap:balance]">"The transition from classical ceremony to upbeat cocktail hour was seamless. The duo is pure class."</blockquote><div class="mt-12 flex items-center gap-6"><div class="h-1 w-12 bg-accent" aria-hidden="true"></div><cite class="font-sans text-xs font-semibold uppercase tracking-widest text-mutedForeground not-italic">Meera &amp; Dev, Mumbai</cite></div></div></div><div class="mt-32 flex flex-col items-center justify-center border-t border-border pt-16"><div class="flex flex-col items-center gap-6 md:flex-row md:gap-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin h-5 w-5 text-accent" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg><p class="text-center font-sans text-sm font-medium uppercase tracking-[0.2em] text-foreground">Performed at venues across India</p></div></div></div></section><section class="relative w-full bg-background text-foreground py-24 md:py-32 lg:py-40 overflow-hidden scroll-mt-16" id="inquiry"><div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url('https://something.lokuma.app/%23n')'/%3E%3C/svg%3E&quot;); background-size: 200px;"></div><div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-10"><div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start"><div class="lg:col-span-5 flex flex-col justify-between h-full"><div><h2 class="font-display text-5xl md:text-7xl lg:text-8xl tracking-tighter uppercase text-balance min-w-0 [text-wrap:balance] mb-8">Reserve<br><span class="text-mutedForeground">Your Date</span></h2><p class="font-sans text-lg md:text-xl leading-relaxed max-w-md mb-12 text-foreground/75">Secure live instrumental elegance for your upcoming celebration. Dates are limited.</p></div><div class="space-y-8 hidden lg:block"><div class="h-px w-full bg-border"></div><div><span class="block font-sans text-xs tracking-widest uppercase text-mutedForeground mb-2">Direct Inquiry</span><a href="mailto:booking@sapphireduo.com" class="font-sans text-lg hover:text-accent transition-colors inline-flex items-center gap-2 group" target="_top">booking@sapphireduo.com<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></div></div></div><div class="lg:col-span-7"><!-- NoCodeExport: This form needs a backend to handle submissions.
+     Options:
+     - Formspree (free): https://formspree.io — add your form endpoint as the action attribute
+     - Netlify Forms: add netlify attribute to the form tag
+     - Google Forms: redirect action to your Google Form URL
+     See https://nocodeexport.com/docs/forms for setup guides --><form class="space-y-6" method="POST" action="https://www.nocodeexport.com/api/submit/form_rFIlsutzsAvnn5UJ" enctype="application/x-www-form-urlencoded"><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="space-y-2"><label for="name" class="block font-sans text-xs tracking-widest uppercase text-mutedForeground">Full Name</label><input type="text" id="name" name="name" required="" placeholder="Jane Doe" class="w-full h-14 bg-muted border border-border px-4 font-sans text-foreground placeholder:text-mutedForeground/40 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors rounded-none"></div><div class="space-y-2"><label for="phone" class="block font-sans text-xs tracking-widest uppercase text-mutedForeground">Phone / WhatsApp</label><input type="tel" id="phone" name="phone" required="" placeholder="+91 98765 43210" class="w-full h-14 bg-muted border border-border px-4 font-sans text-foreground placeholder:text-mutedForeground/40 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors rounded-none"></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="space-y-2"><label for="date" class="block font-sans text-xs tracking-widest uppercase text-mutedForeground">Event Date</label><input type="date" id="date" name="date" required="" class="w-full h-14 bg-muted border border-border px-4 font-sans text-foreground placeholder:text-mutedForeground/40 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors rounded-none [&amp;::-webkit-calendar-picker-indicator]:invert-[0.8]"></div><div class="space-y-2"><label for="city" class="block font-sans text-xs tracking-widest uppercase text-mutedForeground">City / Venue</label><input type="text" id="city" name="city" required="" placeholder="Udaipur, Rajasthan" class="w-full h-14 bg-muted border border-border px-4 font-sans text-foreground placeholder:text-mutedForeground/40 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors rounded-none"></div></div><div class="space-y-2 pt-4"><label for="details" class="block font-sans text-xs tracking-widest uppercase text-mutedForeground">Event Details (Optional)</label><textarea id="details" name="details" rows="4" placeholder="Tell us about the mood, scale, and any specific musical requests..." class="w-full bg-muted border border-border p-4 font-sans text-foreground placeholder:text-mutedForeground/40 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors rounded-none resize-none"></textarea></div><input name="lk_url_extra" type="text" tabindex="-1" aria-hidden="true" autocomplete="new-password" style="position: absolute; left: -9999px;"><div class="pt-6"><button type="submit" class="w-full h-16 bg-foreground text-background flex items-center justify-center gap-3 font-sans font-semibold text-sm tracking-widest uppercase hover:bg-accent hover:text-accentForeground transition-all duration-200 rounded-none disabled:opacity-50 disabled:cursor-not-allowed group">Check Availability<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></div><input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off"></form></div></div></div><a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 bg-foreground text-background border border-border p-4 shadow-primary flex items-center gap-3 hover:bg-accent hover:text-accentForeground hover:-translate-y-1 transition-all duration-200 rounded-none group" aria-label="Contact on WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg><span class="hidden md:inline-block font-sans text-xs font-semibold tracking-widest uppercase">WhatsApp</span></a></section></main><footer class="bg-background text-foreground border-t border-border relative overflow-hidden"><div class="absolute inset-0 bg-noise pointer-events-none opacity-50 mix-blend-overlay"></div><div class="max-w-7xl mx-auto px-6 md:px-12 pt-24 pb-12 relative z-10"><div class="mb-20 overflow-hidden w-full"><h2 class="font-display text-[15vw] leading-none tracking-tighter uppercase text-foreground mb-4">Sapphire</h2><p class="font-mono text-sm md:text-base tracking-widest uppercase text-foreground/75 max-w-xl">Live Guitar &amp; Keyboard for Timeless Moments</p></div><div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-24"><div class="flex flex-col gap-4"><h3 class="font-mono text-xs tracking-widest uppercase text-mutedForeground mb-2">Navigation</h3><a href="#about" class="font-body text-base hover:text-accent transition-colors w-fit group">About the Duo<span class="block h-px w-full bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150 mt-1"></span></a><a href="#performances" class="font-body text-base hover:text-accent transition-colors w-fit group">Performances<span class="block h-px w-full bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150 mt-1"></span></a><a href="#offerings" class="font-body text-base hover:text-accent transition-colors w-fit group">Curated Offerings<span class="block h-px w-full bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150 mt-1"></span></a></div><div class="flex flex-col gap-4"><h3 class="font-mono text-xs tracking-widest uppercase text-mutedForeground mb-2">Social</h3><a href="#" class="font-body text-base hover:text-accent transition-colors w-fit flex items-center gap-2 group">Instagram<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><a href="#" class="font-body text-base hover:text-accent transition-colors w-fit flex items-center gap-2 group">YouTube<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><a href="#" class="font-body text-base hover:text-accent transition-colors w-fit flex items-center gap-2 group">Spotify<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></div><div class="flex flex-col gap-4 md:col-span-2"><h3 class="font-mono text-xs tracking-widest uppercase text-mutedForeground mb-2">Inquiries</h3><a href="mailto:booking@sapphireduo.com" class="font-display text-2xl md:text-3xl tracking-tight hover:text-accent transition-colors" target="_top">booking@sapphireduo.com</a><a href="tel:+919876543210" class="font-display text-2xl md:text-3xl tracking-tight hover:text-accent transition-colors mt-2" target="_top">+91 98765 43210</a><div class="mt-6"><a href="#inquiry" class="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background font-mono text-xs tracking-widest uppercase hover:bg-accent hover:text-accentForeground transition-colors duration-150">Check Availability</a></div></div></div><div class="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4"><p class="font-mono text-xs text-mutedForeground tracking-wider">© 2026 SAPPHIRE DUO. ALL RIGHTS RESERVED.</p><div class="flex gap-6"><a href="#" class="font-mono text-xs text-mutedForeground hover:text-foreground tracking-wider transition-colors">PRIVACY</a><a href="#" class="font-mono text-xs text-mutedForeground hover:text-foreground tracking-wider transition-colors">TERMS</a></div></div></div></footer></div>
+  
+
+<div data-lokuma-banner="v2" style="position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 2147483647; max-width: min(96vw, 1020px); pointer-events: none;"><div style="pointer-events: auto; display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 999px; background: rgba(255, 255, 255, 0.92); border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: rgba(0, 0, 0, 0.22) 0px 18px 48px; backdrop-filter: blur(10px); font-family: ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial; color: rgb(17, 24, 39);"><div style="display: flex; align-items: center; gap: 8px; min-width: 0px; flex: 1 1 auto;"><img src="https://something.lokuma.app/logo.svg" alt="Lokuma" width="28" height="28" style="width: 28px; height: 28px; display: block; object-fit: contain; border-radius: 6px;" loading="lazy" decoding="async"><span style="font-size: 15px; line-height: 20px; font-weight: 800; color: rgba(17, 24, 39, 0.78); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Like this site? Build your own with Lokuma.</span></div><a href="./index.html" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-size: 14px; line-height: 18px; font-weight: 900; color: rgb(255, 255, 255); background: linear-gradient(135deg, rgb(168, 85, 247) 0%, rgb(99, 102, 241) 100%); box-shadow: rgba(99, 102, 241, 0.28) 0px 12px 30px; border: 0px; white-space: nowrap;"><span style="display: inline-flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l1.2 4.2L17.4 7.4l-4.2 1.2L12 12.8l-1.2-4.2L6.6 7.4l4.2-1.2L12 2z" fill="rgba(255,255,255,0.95)"></path></svg></span><span>Get Started — Free</span></a></div><button type="button" aria-label="Close" style="pointer-events: auto; position: absolute; right: -10px; top: -10px; width: 36px; height: 36px; border-radius: 999px; border: 1px solid rgba(0, 0, 0, 0.1); background: rgba(255, 255, 255, 0.98); color: rgba(17, 24, 39, 0.8); font-size: 22px; line-height: 34px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.18) 0px 10px 24px;">×</button></div><script>/**
+ * Nav Scroll Polyfill — Structural Detection Algorithm
+ *
+ * Adds scroll-based background transition for fixed navigation headers.
+ * Frameworks like Framer Motion normally drive this via variant animations on scroll.
+ *
+ * ALGORITHM:
+ *   1. PRE-TAGGED: Check for [data-nce-nav-scroll] (set by page-processor.ts
+ *      during the Cheerio phase, which can inspect CSS rules for position:fixed).
+ *   2. SELF-DETECT: If no pre-tagged elements found, scan for elements matching
+ *      the fixed-transparent-nav heuristic:
+ *        a. computedStyle position is "fixed" or "sticky"
+ *        b. computedStyle top ≤ 5px (pinned to top)
+ *        c. Background is transparent (rgba alpha ≈ 0, or "transparent")
+ *        d. Contains ≥ 1 anchor link (navigation heuristic)
+ *   3. SCROLL HANDLER: On scroll > 50px → apply dark bg + backdrop blur.
+ *      On scroll ≤ 10px → revert. Hysteresis gap prevents flicker.
+ *   4. TARGET BG: Read from data-nce-nav-scroll-bg if pre-tagged, else default
+ *      to rgba(0,0,0,0.8).
+ */
+(function() {
+    // ─── Detection ─────────────────────────────────────────────
+
+    /** Check if a background-color string is transparent */
+    function isTransparentBg(bg) {
+        if (!bg || bg === 'transparent' || bg === 'rgba(0, 0, 0, 0)') return true;
+        var m = bg.match(/rgba?\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*,?\s*([\d.]+)?\s*\)/);
+        if (m && m[1] !== undefined) return parseFloat(m[1]) < 0.05;
+        return false;
+    }
+
+    /** Pick a scroll background that contrasts with the nav's text color */
+    function inferScrollBg(el) {
+        var link = el.querySelector('a');
+        var textColor = link ? getComputedStyle(link).color : getComputedStyle(el).color;
+        var m = textColor.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+        if (m) {
+            // Relative luminance approximation
+            var lum = (parseInt(m[1]) * 299 + parseInt(m[2]) * 587 + parseInt(m[3]) * 114) / 1000;
+            // Light text → dark bg, dark text → light bg
+            if (lum > 140) return 'rgba(0,0,0,0.8)';
+            return 'rgba(255,255,255,0.85)';
+        }
+        return 'rgba(0,0,0,0.8)';
+    }
+
+    /** Find nav elements that should get scroll behavior.
+     *  Returns Array<{ el: Element, targetBg: string }> */
+    function findNavs() {
+        var results = [];
+
+        // 1. Pre-tagged by page-processor
+        document.querySelectorAll('[data-nce-nav-scroll]').forEach(function(el) {
+            results.push({
+                el: el,
+                targetBg: el.getAttribute('data-nce-nav-scroll-bg') || inferScrollBg(el)
+            });
+        });
+
+        if (results.length > 0) return results;
+
+        // 2. Self-detect: scan <nav> and header-like elements
+        var candidates = document.querySelectorAll('nav, header, [role="navigation"]');
+        candidates.forEach(function(el) {
+            var cs = getComputedStyle(el);
+
+            // Also check the parent (Framer wraps nav in a -container div that
+            // holds position:fixed while the <nav> itself has the bg color)
+            var parent = el.parentElement;
+            var pcs = parent ? getComputedStyle(parent) : null;
+
+            var isFixed = cs.position === 'fixed' || cs.position === 'sticky'
+                || (pcs && (pcs.position === 'fixed' || pcs.position === 'sticky'));
+            var isTop = parseFloat(cs.top) <= 5
+                || (pcs && parseFloat(pcs.top) <= 5);
+
+            if (!isFixed || !isTop) return;
+            if (!isTransparentBg(cs.backgroundColor)) return;
+            if (el.querySelectorAll('a').length === 0) return;
+
+            results.push({ el: el, targetBg: inferScrollBg(el) });
+        });
+
+        return results;
+    }
+
+    // ─── Scroll Handler ────────────────────────────────────────
+
+    var navs = findNavs();
+    if (!navs.length) return;
+
+    navs.forEach(function(nav) {
+        var el = nav.el;
+        var targetBg = nav.targetBg;
+        var originalBg = el.style.backgroundColor || getComputedStyle(el).backgroundColor;
+        var originalBackdrop = el.style.backdropFilter || 'none';
+
+        el.style.transition = 'background-color 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease';
+
+        var scrolled = false;
+        var ticking = false;
+
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function() {
+                var y = window.pageYOffset || document.documentElement.scrollTop;
+                if (y > 50 && !scrolled) {
+                    scrolled = true;
+                    el.style.backgroundColor = targetBg;
+                    el.style.backdropFilter = 'blur(5px)';
+                    el.style.webkitBackdropFilter = 'blur(5px)';
+                } else if (y <= 10 && scrolled) {
+                    scrolled = false;
+                    el.style.backgroundColor = originalBg;
+                    el.style.backdropFilter = originalBackdrop;
+                    el.style.webkitBackdropFilter = originalBackdrop;
+                }
+                ticking = false;
+            });
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    });
+})();
+</script><script>(function() {
+  function getPathname(urlBase) {
+    var a = document.createElement('a');
+    a.href = urlBase;
+    return a.pathname.replace(/\/$/, '') || '/';
+  }
+
+  function matchesCurrent(href) {
+    if (!href || href === '#' || href.startsWith('javascript:')) return false;
+
+    var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+    var linkPath = getPathname(href);
+
+    // Exact match
+    if (currentPath === linkPath) return true;
+
+    // Static export match (e.g. current is /about.html, link is /about or /about/)
+    var currentStripped = currentPath.replace(/\.html$/, '');
+    var linkStripped = linkPath.replace(/\.html$/, '');
+    if (currentStripped === linkStripped) return true;
+
+    // Index match
+    if (currentStripped + '/index' === linkStripped) return true;
+    if (linkStripped + '/index' === currentStripped) return true;
+
+    return false;
+  }
+
+  function applyActiveState(el) {
+    // Standard generic class
+    el.classList.add('active', 'current', 'w--current');
+    el.setAttribute('aria-current', 'page');
+    
+    // Framer Active / Hover Mocking
+    // Some Framer sites use opacity for nav unselected, we force opacity 1.
+    if (el.closest('[data-framer-name]')) {
+      el.style.opacity = '1';
+      // Attempt to find an internal text node and embolden it if that's a common pattern, 
+      // though opacity is the safest cross-site Framer fallback if variants aren't loaded.
+      var innerSpan = el.querySelector('span');
+      if (innerSpan) {
+        innerSpan.style.opacity = '1';
+      }
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    var navLinks = document.querySelectorAll('nav a, header a, [role="navigation"] a, .nav a, .navbar a');
+    var foundActive = false;
+
+    navLinks.forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (matchesCurrent(href)) {
+        applyActiveState(link);
+        foundActive = true;
+      }
+    });
+
+    // If no direct 'a' match found, check for parents (like li) wrap
+    if (!foundActive) {
+      document.querySelectorAll('nav li, header li, .nav-item').forEach(function(li) {
+        var a = li.querySelector('a');
+        if (a && matchesCurrent(a.getAttribute('href'))) {
+          applyActiveState(li);
+          applyActiveState(a);
+        }
+      });
+    }
+  });
+})();
+</script><script>
+(function() {
+    var origin = "https://something.lokuma.app";
+    var allowed = ["https://something.lokuma.app/"];
+    var currentPath = "/";
+    var relativeRoot = "./";
+
+    function normalizePath(pathname) {
+        var withoutIndex = pathname.replace(/\/index\.html$/i, "");
+        var withoutTrailingSlash = withoutIndex.replace(/\/$/, "");
+        return withoutTrailingSlash || "/";
+    }
+
+    function buildExportHref(url) {
+        var clean = normalizePath(url.pathname);
+        if (clean === currentPath && url.hash) {
+            return url.hash;
+        }
+
+        var targetPath = clean === "/" ? "index.html" : clean.substring(1) + "/index.html";
+        return relativeRoot + targetPath + (url.hash || "");
+    }
+    
+    function neutralizeLink(a) {
+        if (!a) return;
+        var rawHref = a.getAttribute("href");
+        if (!rawHref) return;
+        if (a.getAttribute("data-nce-checked") === rawHref) return;
+
+        a.setAttribute("data-nce-checked", rawHref);
+
+        // Ignore anchors, JS, mailto, tel
+        if (rawHref.indexOf("#") === 0 || rawHref.indexOf("javascript:") === 0 || rawHref.indexOf("mailto:") === 0 || rawHref.indexOf("tel:") === 0) return;
+
+        try {
+            // Crucial: Resolve against intended page URL, NOT local filesystem.
+            var url = new URL(rawHref, origin + "/");
+            if (url.origin === origin) {
+                // Internal link
+                var clean = normalizePath(url.pathname);
+                var full = url.origin + clean;
+                var isExported = allowed.indexOf(full) !== -1;
+                
+                if (!isExported) {
+                    // Block unexported pages
+                    a.setAttribute("href", "javascript:void(0)");
+                    a.removeAttribute("target");
+                    a.style.cursor = "default";
+                } else {
+                    a.setAttribute("href", buildExportHref(url));
+                    if (a.style.cursor === "default") {
+                        a.style.cursor = "";
+                    }
+                }
+            } else {
+                // External link
+                if (a.getAttribute("target") !== "_blank") {
+                    a.setAttribute("target", "_top");
+                }
+            }
+        } catch(err) {}
+    }
+
+    // Process existing links immediately
+    document.querySelectorAll("a[href]").forEach(neutralizeLink);
+
+    // Watch for dynamically added links (e.g., React portals, dropdowns)
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+                if (node.nodeType === 1) { // ELEMENT_NODE
+                    if (node.tagName === "A") neutralizeLink(node);
+                    if (node.querySelectorAll) {
+                        node.querySelectorAll("a[href]").forEach(neutralizeLink);
+                    }
+                }
+            });
+            if (mutation.type === "attributes" && mutation.attributeName === "href") {
+                neutralizeLink(mutation.target);
+            }
+        });
+    });
+    // Target documentElement to catch portals/overlays injected outside <body>
+    observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["href"] });
+
+    // Fallback event blackhole for advanced SPAs targeting unexported links
+    var events = ["click", "mousedown", "mouseup", "pointerdown", "pointerup", "touchstart", "touchend"];
+    events.forEach(function(ev) {
+        document.addEventListener(ev, function(e) {
+            var a = e.target.closest("a");
+            if (!a) return;
+            var rawHref = a.getAttribute("href");
+            if (!rawHref || rawHref.indexOf("#") === 0) return;
+            
+            // Blackhole neutralized links completely across all interactions
+            if (rawHref.indexOf("javascript:void(0)") !== -1) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                return;
+            }
+
+            // Offline file:// routing fallback
+            if (ev === "click" && window.location.protocol === "file:") {
+                try {
+                    var url = new URL(rawHref, origin + "/");
+                    if (url.origin === origin) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        e.stopImmediatePropagation();
+                        
+                        var clean = normalizePath(url.pathname);
+                        var full = url.origin + clean;
+                        var isExported = allowed.indexOf(full) !== -1;
+                        if (isExported) {
+                            if (clean === currentPath && url.hash) {
+                                var el = document.querySelector(url.hash);
+                                if (el) { el.scrollIntoView({ behavior: 'smooth' }); }
+                                else { window.location.hash = url.hash; }
+                                return;
+                            }
+
+                            window.location.href = buildExportHref(url);
+                        }
+                        return;
+                    }
+                } catch(err) {}
+            }
+        }, true);
+    });
+})();
+</script></body></html>
