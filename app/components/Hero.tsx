@@ -1,107 +1,134 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+
+function WordsPullUp({
+  text,
+  className = "",
+  showAsterisk = false,
+}: {
+  text: string;
+  className?: string;
+  showAsterisk?: boolean;
+}) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-10%" });
+  const words = text.split(" ");
+
+  return (
+    <div ref={ref} className={`flex flex-wrap ${className}`}>
+      {words.map((word, i) => {
+        const isLast = i === words.length - 1;
+        return (
+          <div
+            key={i}
+            className="overflow-hidden inline-flex relative mr-[0.2em] last:mr-0"
+          >
+            <motion.span
+              initial={{ y: 20, opacity: 0 }}
+              animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: i * 0.08,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="inline-block relative pb-[0.1em]"
+            >
+              {word}
+              {showAsterisk && isLast && (
+                <span className="absolute top-[0.4em] -right-[0.3em] text-[0.31em]">
+                  *
+                </span>
+              )}
+            </motion.span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center justify-center pt-32 pb-24 bg-background">
-      {/* Curtain reveal panels */}
-      <div
-        className="absolute top-0 left-0 w-1/2 h-full bg-foreground z-50 transition-transform duration-[1500ms] ease-[cubic-bezier(0.22,1,0.36,1)] -translate-x-full"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-0 right-0 w-1/2 h-full bg-foreground z-50 transition-transform duration-[1500ms] ease-[cubic-bezier(0.22,1,0.36,1)] translate-x-full"
-        aria-hidden="true"
-      />
-
-      {/* Background image */}
-      <div
-        className="absolute inset-0 z-0 transition-transform duration-[3000ms] ease-out scale-100"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1920&q=80'), linear-gradient(135deg, var(--hero-overlay) 0%, var(--hero-overlay) 100%)`,
-          backgroundSize: "cover, cover",
-          backgroundPosition: "center center, center center",
-          backgroundBlendMode: "overlay",
-        }}
-      >
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `linear-gradient(to bottom, color-mix(in srgb, var(--hero-overlay) 30%, transparent) 0%, var(--hero-overlay) 100%)`,
-          }}
+    <section className="relative h-[100svh] w-full bg-black z-0">
+      <div className="relative w-full h-full overflow-hidden bg-black">
+        {/* Background Image */}
+        <img
+          src="/hero-bg.png"
+          alt="Sapphire Live Performance"
+          className="absolute inset-0 w-full h-full object-cover grayscale"
         />
-        <div
-          className="absolute inset-0 opacity-[0.03] mix-blend-overlay noise-overlay"
-        />
-      </div>
+        {/* Noise overlay */}
+        <div className="absolute inset-0 noise-overlay opacity-[0.7] mix-blend-overlay pointer-events-none" />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto w-full">
-        <span
-          className="font-sans uppercase tracking-[0.2em] text-xs md:text-sm mb-6 md:mb-8 transition-all duration-1000 ease-out delay-[1000ms] opacity-100 translate-y-0"
-          style={{ color: "var(--hero-fg)" }}
-        >
-          Live Guitar &amp; Keyboard for Timeless Moments
-        </span>
-
-        <h1
-          className="font-display text-6xl md:text-8xl lg:text-[10rem] leading-none tracking-tighter text-balance min-w-0 [text-wrap:balance] mb-6 md:mb-8 transition-all duration-1000 ease-out delay-[1200ms] opacity-100 translate-y-0"
-          style={{
-            backgroundImage: "linear-gradient(135deg, #ffffff 0%, #c0c0c0 50%, #9a9a9a 100%)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Sapphire
-        </h1>
-
-        <p
-          className="font-sans text-lg md:text-xl max-w-2xl text-balance mb-12 transition-all duration-1000 ease-out delay-[1400ms] opacity-90 translate-y-0"
-          style={{ color: "var(--hero-fg)" }}
-        >
-          Elegant instrumental music crafted for your wedding and most intimate
-          celebrations
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto transition-all duration-1000 ease-out delay-[1600ms] opacity-100 translate-y-0">
-          <a
-            href="#inquiry"
-            className="inline-flex items-center justify-center px-10 py-4 font-sans text-sm font-semibold uppercase tracking-widest transition-all duration-300 hover:scale-105"
-            style={{
-              backgroundColor: "var(--hero-fg)",
-              color: "var(--hero-overlay)",
-            }}
-          >
-            Check Availability
-          </a>
-          <a
-            href="#performances"
-            className="inline-flex items-center justify-center px-10 py-4 font-sans text-sm font-semibold uppercase tracking-widest transition-all duration-300 border hover:bg-[var(--hero-fg)] hover:text-[var(--hero-overlay)]"
-            style={{
-              borderColor: "var(--hero-fg)",
-              color: "var(--hero-fg)",
-            }}
-          >
-            Watch Performances
-          </a>
+        {/* Navbar inside Hero (Pill) */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-background rounded-b-2xl md:rounded-b-3xl px-6 py-3 md:px-10 md:py-4 z-20 shadow-2xl">
+          <nav className="flex items-center gap-4 sm:gap-8 md:gap-14">
+            {["About", "Performances", "Offerings", "Styles", "Inquire"].map(
+              (item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="font-sans text-[10px] sm:text-xs md:text-sm tracking-widest uppercase transition-colors duration-300 text-foreground/80 hover:text-foreground"
+                >
+                  {item}
+                </a>
+              )
+            )}
+          </nav>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce transition-opacity duration-1000 delay-[2000ms] opacity-50">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-8 h-8"
-          style={{ color: "var(--hero-fg)" }}
-        >
-          <path d="m6 9 6 6 6-6" />
-        </svg>
+        {/* Hero Content */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 pb-12 md:pb-20 z-20">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+            <div className="md:col-span-8 lg:col-span-8 pb-4">
+              <WordsPullUp
+                text="Sapphire"
+                showAsterisk={false}
+                className="font-display text-background font-medium leading-[1] tracking-[-0.05em] text-[24vw] sm:text-[22vw] md:text-[18vw] lg:text-[17vw] xl:text-[16vw] 2xl:text-[15vw]"
+              />
+            </div>
+            <div className="md:col-span-4 flex flex-col items-start gap-8 pb-4 md:pb-8">
+              <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.5,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="text-background/80 text-sm sm:text-base leading-relaxed font-sans max-w-sm drop-shadow-lg"
+              >
+                Elegant instrumental music crafted for your wedding and most intimate
+                celebrations. Live guitar and keyboard for timeless moments.
+              </motion.p>
+
+              <motion.a
+                href="#inquiry"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.7,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="group flex items-center bg-background rounded-full pl-6 pr-2 py-2 gap-4 hover:gap-6 transition-all duration-300 shadow-2xl hover:shadow-background/20"
+              >
+                <span className="text-foreground font-sans font-semibold tracking-widest uppercase text-xs sm:text-sm whitespace-nowrap">
+                  Check Availability
+                </span>
+                <div className="bg-foreground rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <ArrowRight className="text-background w-4 h-4 sm:w-5 sm:h-5" />
+                </div>
+              </motion.a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

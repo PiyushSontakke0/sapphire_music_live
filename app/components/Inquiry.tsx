@@ -169,33 +169,6 @@ export default function Inquiry() {
           </div>
         </div>
       </div>
-
-      {/* WhatsApp floating button */}
-      <a
-        href="https://wa.me/1234567890"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 bg-foreground text-background border border-border p-4 shadow-primary flex items-center gap-3 hover:bg-accent hover:text-accentForeground hover:-translate-y-1 transition-all duration-200 rounded-none group"
-        aria-label="Contact on WhatsApp"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-6 h-6"
-        >
-          <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-        </svg>
-        <span className="hidden md:inline-block font-sans text-xs font-semibold tracking-widest uppercase">
-          WhatsApp
-        </span>
-      </a>
     </section>
   );
 }

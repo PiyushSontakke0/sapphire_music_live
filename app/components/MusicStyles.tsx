@@ -14,7 +14,7 @@ export default function MusicStyles() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="mb-16 md:mb-24 flex items-center gap-4">
           <div className="h-px w-12 bg-accent" />
-          <span className="font-mono text-sm tracking-widest uppercase text-mutedForeground">
+          <span className="font-sans text-sm tracking-widest uppercase text-mutedForeground">
             Curated Repertoire
           </span>
         </div>
@@ -45,7 +45,7 @@ export default function MusicStyles() {
                 >
                   <div className="absolute top-0 left-0 h-[2px] bg-accent w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.25,0,0,1)] z-20" />
                   <div className="flex items-start md:items-center gap-6 md:gap-12 relative z-10 w-full">
-                    <span className="font-mono text-sm md:text-base text-foreground/75 group-hover:text-accent transition-colors duration-300 mt-2 md:mt-0">
+                    <span className="font-sans text-sm md:text-base text-foreground/75 group-hover:text-accent transition-colors duration-300 mt-2 md:mt-0">
                       {style.num}
                     </span>
                     <h3 className="font-display text-4xl md:text-5xl lg:text-7xl tracking-tighter text-foreground group-hover:text-accent transition-colors duration-300 text-balance min-w-0 [text-wrap:balance]">

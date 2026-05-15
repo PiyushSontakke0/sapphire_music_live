@@ -4,17 +4,23 @@ import { useState, useEffect } from "react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
     let lastY = window.pageYOffset || document.documentElement.scrollTop;
     let ticking = false;
 
+    // Check on mount to handle reloads not at top
+    if (lastY > 100) setHidden(false);
+
     const onScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           const currentY = window.pageYOffset || document.documentElement.scrollTop;
-          if (currentY > lastY && currentY > 50) {
+          
+          if (currentY < 100) {
+            setHidden(true); // Always hide at the very top
+          } else if (currentY > lastY && currentY > 50) {
             setHidden(true);
             setMenuOpen(false);
           } else if (currentY < lastY) {
@@ -47,35 +53,35 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-8">
             <a
               href="#about"
-              className="text-xs font-mono uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2"
+              className="text-xs font-sans uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2"
             >
               About
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150" />
             </a>
             <a
               href="#performances"
-              className="text-xs font-mono uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2"
+              className="text-xs font-sans uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2"
             >
               Performances
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150" />
             </a>
             <a
               href="#offerings"
-              className="text-xs font-mono uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2"
+              className="text-xs font-sans uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2"
             >
               Offerings
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150" />
             </a>
             <a
               href="#styles"
-              className="text-xs font-mono uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2"
+              className="text-xs font-sans uppercase tracking-widest text-foreground hover:text-accent transition-colors relative group py-2"
             >
               Styles
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-150" />
             </a>
             <a
               href="#inquiry"
-              className="ml-4 px-6 py-3 border border-foreground text-foreground text-xs font-mono uppercase tracking-widest hover:bg-foreground hover:text-background transition-colors duration-150"
+              className="ml-4 px-6 py-3 border border-foreground text-foreground text-xs font-sans uppercase tracking-widest hover:bg-foreground hover:text-background transition-colors duration-150"
             >
               Inquire
             </a>
@@ -113,35 +119,35 @@ export default function Header() {
           <a
             href="#about"
             onClick={() => setMenuOpen(false)}
-            className="text-lg font-mono uppercase tracking-widest text-foreground border-b border-border/50 pb-4"
+            className="text-lg font-sans uppercase tracking-widest text-foreground border-b border-border/50 pb-4"
           >
             About
           </a>
           <a
             href="#performances"
             onClick={() => setMenuOpen(false)}
-            className="text-lg font-mono uppercase tracking-widest text-foreground border-b border-border/50 pb-4"
+            className="text-lg font-sans uppercase tracking-widest text-foreground border-b border-border/50 pb-4"
           >
             Performances
           </a>
           <a
             href="#offerings"
             onClick={() => setMenuOpen(false)}
-            className="text-lg font-mono uppercase tracking-widest text-foreground border-b border-border/50 pb-4"
+            className="text-lg font-sans uppercase tracking-widest text-foreground border-b border-border/50 pb-4"
           >
             Offerings
           </a>
           <a
             href="#styles"
             onClick={() => setMenuOpen(false)}
-            className="text-lg font-mono uppercase tracking-widest text-foreground border-b border-border/50 pb-4"
+            className="text-lg font-sans uppercase tracking-widest text-foreground border-b border-border/50 pb-4"
           >
             Styles
           </a>
           <a
             href="#inquiry"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 inline-flex justify-center w-full px-6 py-4 bg-foreground text-background text-sm font-mono uppercase tracking-widest transition-colors"
+            className="mt-4 inline-flex justify-center w-full px-6 py-4 bg-foreground text-background text-sm font-sans uppercase tracking-widest transition-colors"
           >
             Check Availability
           </a>

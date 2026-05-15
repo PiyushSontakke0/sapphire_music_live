@@ -27,7 +27,7 @@ export default function Footer() {
           <h2 className="font-display text-[15vw] leading-none tracking-tighter uppercase text-foreground mb-4">
             Sapphire
           </h2>
-          <p className="font-mono text-sm md:text-base tracking-widest uppercase text-foreground/75 max-w-xl">
+          <p className="font-sans text-sm md:text-base tracking-widest uppercase text-foreground/75 max-w-xl">
             Live Guitar &amp; Keyboard for Timeless Moments
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-24">
           {/* Navigation */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-mono text-xs tracking-widest uppercase text-mutedForeground mb-2">
+            <h3 className="font-sans text-xs tracking-widest uppercase text-mutedForeground mb-2">
               Navigation
             </h3>
             <a
@@ -64,7 +64,7 @@ export default function Footer() {
 
           {/* Social */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-mono text-xs tracking-widest uppercase text-mutedForeground mb-2">
+            <h3 className="font-sans text-xs tracking-widest uppercase text-mutedForeground mb-2">
               Social
             </h3>
             <a
@@ -92,7 +92,7 @@ export default function Footer() {
 
           {/* Inquiries */}
           <div className="flex flex-col gap-4 md:col-span-2">
-            <h3 className="font-mono text-xs tracking-widest uppercase text-mutedForeground mb-2">
+            <h3 className="font-sans text-xs tracking-widest uppercase text-mutedForeground mb-2">
               Inquiries
             </h3>
             <a
@@ -110,7 +110,7 @@ export default function Footer() {
             <div className="mt-6">
               <a
                 href="#inquiry"
-                className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background font-mono text-xs tracking-widest uppercase hover:bg-accent hover:text-accentForeground transition-colors duration-150"
+                className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background font-sans text-xs tracking-widest uppercase hover:bg-accent hover:text-accentForeground transition-colors duration-150"
               >
                 Check Availability
               </a>
@@ -120,19 +120,19 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-mono text-xs text-mutedForeground tracking-wider">
+          <p className="font-sans text-xs text-mutedForeground tracking-wider">
             © 2026 SAPPHIRE DUO. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-6">
             <a
               href="#"
-              className="font-mono text-xs text-mutedForeground hover:text-foreground tracking-wider transition-colors"
+              className="font-sans text-xs text-mutedForeground hover:text-foreground tracking-wider transition-colors"
             >
               PRIVACY
             </a>
             <a
               href="#"
-              className="font-mono text-xs text-mutedForeground hover:text-foreground tracking-wider transition-colors"
+              className="font-sans text-xs text-mutedForeground hover:text-foreground tracking-wider transition-colors"
             >
               TERMS
             </a>

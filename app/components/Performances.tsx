@@ -24,7 +24,7 @@ export default function Performances() {
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <span className="block text-xs font-mono uppercase tracking-[0.2em] text-mutedForeground mb-6">
+            <span className="block text-xs font-sans uppercase tracking-[0.2em] text-mutedForeground mb-6">
               Live in Motion
             </span>
             <h2 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-tighter text-balance min-w-0 [text-wrap:balance]">
@@ -32,7 +32,7 @@ export default function Performances() {
             </h2>
           </div>
           <div className="hidden md:block pb-4">
-            <p className="text-mutedForeground font-mono text-sm tracking-[0.2em] uppercase">
+            <p className="text-mutedForeground font-sans text-sm tracking-[0.2em] uppercase">
               Vol. I — MMXXIV
             </p>
           </div>

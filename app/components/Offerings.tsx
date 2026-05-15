@@ -45,7 +45,7 @@ export default function Offerings() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
         <div className="mb-20 md:mb-32">
-          <span className="block font-mono text-xs md:text-sm tracking-widest uppercase text-mutedForeground mb-6">
+          <span className="block font-sans text-xs md:text-sm tracking-widest uppercase text-mutedForeground mb-6">
             Curated Moments
           </span>
           <h2 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-tighter text-balance min-w-0 [text-wrap:balance]">
@@ -64,7 +64,7 @@ export default function Offerings() {
               style={item.num === "01" ? { borderTopWidth: "2px", borderTopColor: "var(--foreground)" } : undefined}
             >
               <div className="col-span-1 md:col-span-2 flex items-start">
-                <span className="font-mono text-xl md:text-2xl text-foreground/75 group-hover:text-accent transition-colors duration-300">
+                <span className="font-sans text-xl md:text-2xl text-foreground/75 group-hover:text-accent transition-colors duration-300">
                   {item.num}
                 </span>
               </div>
@@ -76,7 +76,7 @@ export default function Offerings() {
                   {item.subtitle}
                 </p>
                 <div className="mt-8 md:mt-12 flex items-center gap-3 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-4 transition-all duration-500 ease-[cubic-bezier(0.25,0,0,1)]">
-                  <span className="font-mono text-xs tracking-widest uppercase text-accent">
+                  <span className="font-sans text-xs tracking-widest uppercase text-accent">
                     Inquire
                   </span>
                   <ArrowRight />
